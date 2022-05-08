@@ -1,3 +1,4 @@
+// 268. Missing number - https://leetcode.com/problems/missing-number/
 pub struct Solution;
 impl Solution {
     // Runtime: 3 ms, faster than 67.86% of Rust online submissions for Missing Number.
@@ -9,8 +10,17 @@ impl Solution {
         n_sum - nums_sum
     }
 
+    // Runtime: 0 ms, faster than 100.00% of Rust online submissions for Missing Number.
+    // Memory Usage: 2.4 MB, less than 12.50% of Rust online submissions for Missing Number.
     pub fn missing_number(nums: Vec<i32>) -> i32 {
-        
+        let len = nums.len() as i32;
+        let mut sum = len * (len + 1) / 2;
+
+        for i in nums.iter() {
+            sum -= i;
+        }
+
+        sum
     }
 
     pub fn test() {
