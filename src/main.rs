@@ -1,5 +1,5 @@
-mod lc268;
+mod lc136;
 
 fn main() {
-    lc268::Solution::test();
+    lc136::Solution::test();
 }
