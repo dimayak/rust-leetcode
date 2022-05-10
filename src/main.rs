@@ -1,5 +1,5 @@
-mod lc70;
+mod lc121;
 
 fn main() {
-    lc70::Solution::test();
+    lc121::Solution::test();
 }
