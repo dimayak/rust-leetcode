@@ -1,6 +1,6 @@
 // 303. Range Sum Query - Immutable - https://leetcode.com/problems/range-sum-query-immutable/
 struct NumArray {
-    nums: Vec<i32>
+    sums: Vec<i32>
 }
 
 /** 
@@ -10,16 +10,26 @@ struct NumArray {
 impl NumArray {
 
     fn new(nums: Vec<i32>) -> Self {
-        Self { nums: nums }
+        let mut sums = vec![0; nums.len()];
+        let mut sum = 0;
+        for i in 0..sums.len() {
+            sum += nums[i];
+            sums[i] = sum;
+        }
+        Self { sums }
     }
     
     fn sum_range(&self, left: i32, right: i32) -> i32 {
-        let mut sum = 0;
-        for i in left..=right {
-            sum += self.nums[i as usize];
+        let left = left as usize;
+        let right = right as usize;
+
+        let sum_right = self.sums[right];
+        let mut sum_left = 0;
+        if left > 0 {
+            sum_left = self.sums[left - 1];
         }
 
-        sum
+        return sum_right - sum_left;
     }
 }
 
