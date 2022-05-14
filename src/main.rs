@@ -1,5 +1,5 @@
-mod lc53;
+mod lc303;
 
 fn main() {
-    lc53::Solution::test();
+    lc303::Solution::test();
 }
