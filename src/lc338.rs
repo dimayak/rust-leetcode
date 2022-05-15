@@ -25,9 +25,8 @@ impl Solution {
         let mut result = vec![0; (n + 1) as usize];
 
         for i in 0..=n {
-            result[i as usize] = i.count_ones() as i32;
+            result[i as usize] = result[(i >> 1) as usize] + i % 2;
         }
-
         result
     }
 
